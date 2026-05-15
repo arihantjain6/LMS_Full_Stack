@@ -6,6 +6,10 @@
   "scripts": {
     "dev": "npx tsx watch src/server.ts",
     "start": "npx tsx src/server.ts",
+    "pm2:start": "pm2 start ecosystem.config.cjs --env production",
+    "pm2:restart": "pm2 restart lms-backend --update-env",
+    "pm2:stop": "pm2 stop lms-backend",
+    "pm2:logs": "pm2 logs lms-backend",
     "seed": "npx tsx src/scripts/seed.ts",
     "typecheck": "tsc --noEmit"
   },

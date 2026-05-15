@@ -18,7 +18,24 @@ bun run dev
 bun run start
 bun run seed
 bun run typecheck
+bun run pm2:start
+bun run pm2:restart
+bun run pm2:logs
 ```
+
+## PM2 on AWS EC2
+
+```bash
+bun install
+cp .env.example .env
+# update .env with production MONGODB_URI, JWT_SECRET, CORS_ORIGIN, and UPLOAD_BASE_URL
+npm install -g pm2
+bun run pm2:start
+pm2 startup
+pm2 save
+```
+
+The PM2 app is defined in `ecosystem.config.cjs` and runs `src/server.ts` with Bun from this backend directory. Keep production secrets in `.env`; the PM2 config only sets safe defaults for `NODE_ENV` and `PORT`.
 
 ## API Base
 
