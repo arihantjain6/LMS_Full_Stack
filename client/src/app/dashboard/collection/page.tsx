@@ -126,6 +126,7 @@ export default function CollectionDashboardPage() {
             <FormInput
               label="Amount"
               type="number"
+              step="0.01"
               error={form.formState.errors.amount}
               registration={form.register("amount", { valueAsNumber: true })}
             />
