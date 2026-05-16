@@ -23,5 +23,16 @@ module.exports = {
         PORT: 4000,
       },
     },
+    ...(process.argv.includes("--ngrok") || process.env.npm_config_ngrok || process.env.NGROK === "true"
+      ? [
+          {
+            name: "ngrok",
+            script: "ngrok",
+            args: "http --domain=senorita-iron-tarmac.ngrok-free.dev 4000",
+            interpreter: "none",
+            autorestart: true,
+          },
+        ]
+      : []),
   ],
 };
